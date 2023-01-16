@@ -1,7 +1,7 @@
 // Copyright 2022 Niantic, Inc. All Rights Reserved.
 
 using System;
-
+using Niantic.ARDK.AR.Protobuf;
 using Niantic.ARDK.Configuration.Internal;
 using Niantic.ARDK.Networking;
 using Niantic.ARDK.Utilities;
@@ -149,13 +149,10 @@ namespace Niantic.ARDK.Configuration
     /// @returns True if set properly, false if not
     public static bool SetUserIdOnLogin(string userId)
     {
-      var result = _impl.SetUserIdOnLogin(userId);
-      if (result)
-      {
-        _LoginChanged?.Invoke();
-      }
+      if (userId == null)
+        userId = string.Empty;
       
-      return result;
+      return SetUserId(userId);
     }
 
     
@@ -164,9 +161,20 @@ namespace Niantic.ARDK.Configuration
     /// @returns True if the user id is cleared properly, false if not
     public static bool ClearUserIdOnLogout()
     {
-      return _impl.SetUserIdOnLogin("");
+      return SetUserId(string.Empty);
     }
- 
+
+    private static bool SetUserId(string userId)
+    {
+      var result = _impl.SetUserIdOnLogin(userId);
+      if (result)
+      {
+        _LoginChanged?.Invoke();
+      }
+
+      return result;
+    }
+
     internal static NetworkingErrorCode _VerifyApiKeyWithFeature(string feature, bool isAsync = true)
     {
       return _impl.VerifyApiKeyWithFeature(feature, isAsync);
