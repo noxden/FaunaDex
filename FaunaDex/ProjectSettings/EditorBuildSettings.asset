@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/ARDKExamples/ContextAwareness/HumanAR/HandTracking/HandTracking.unity
-    guid: ad7ffff66652e4350ab5361f8f8facbe
+    path: Assets/Scenes/RemoteAuthoring.unity
+    guid: a02044db153755f4fb67ebcbfd1f80ef
   m_configObjects: {}
