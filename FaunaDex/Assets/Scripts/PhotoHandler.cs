@@ -9,6 +9,7 @@ public class PhotoHandler : MonoBehaviour
     public Canvas Canvas;
     public GameObject PolaroidObject;
     public GameObject ScreenshotFlash;
+    public GameObject PhotoButton;
     
     private Vector2 CamCenter { get; set; }
     private GameObject Polaroid { get; set; }
@@ -16,6 +17,9 @@ public class PhotoHandler : MonoBehaviour
     private Texture2D ScreenshotTexture { get; set; }
     
     private Ray Raycaster { get; set; }
+    
+    private bool RaycastHit => Physics.Raycast(Raycaster, out _, Mathf.Infinity, LayerMask.GetMask("RaycastTarget"));
+
     public void CreateCube()
     {
         if(Polaroid != null && Polaroid.activeSelf)
@@ -43,7 +47,7 @@ public class PhotoHandler : MonoBehaviour
     public void TakeScreenshot()
     {
 
-        if (Physics.Raycast(Raycaster, out _,Mathf.Infinity, LayerMask.GetMask("RaycastTarget")))
+        if (RaycastHit)
         {
             Debug.Log("Hit");
             ScreenshotTexture = ScreenCapture.CaptureScreenshotAsTexture();
@@ -70,7 +74,14 @@ public class PhotoHandler : MonoBehaviour
     }
     void Update()
     {
-        
+        if (!RaycastHit)
+        {
+            PhotoButton.SetActive(false);
+        }
+        else
+        {
+            PhotoButton.SetActive(true);
+        }
         Raycaster = new Ray(CamCenter, Camera.transform.forward);
         CamCenter = Camera.rect.center;
         Debug.DrawRay(Camera.transform.position, Camera.transform.forward, Color.green);

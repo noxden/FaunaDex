@@ -1229,6 +1229,7 @@ MonoBehaviour:
   Canvas: {fileID: 1324837169}
   PolaroidObject: {fileID: 327958374783202611, guid: ccbba4cff5060644ab4a4c36243ead20, type: 3}
   ScreenshotFlash: {fileID: 781380783}
+  PhotoButton: {fileID: 480640820}
 --- !u!4 &847926552
 Transform:
   m_ObjectHideFlags: 0
@@ -1515,7 +1516,7 @@ MonoBehaviour:
     m_Right: 60
     m_Top: 80
     m_Bottom: 80
-  m_ChildAlignment: 4
+  m_ChildAlignment: 7
   m_Spacing: 120
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
