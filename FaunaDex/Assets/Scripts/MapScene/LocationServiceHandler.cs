@@ -8,6 +8,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LocationServiceHandler : MonoBehaviour
 {
@@ -44,10 +45,12 @@ public class LocationServiceHandler : MonoBehaviour
 
     //# Private Variables 
 
+    //# Custom Events 
+    [Space(20)]
+    public UnityEvent OnGPSSuccess;
+    public UnityEvent OnGPSFailure;
+
     //# Monobehaviour Events 
-    /// <summary>
-    /// Awake is called when the script instance is being loaded.
-    /// </summary>
     private void Awake()
     {
         //# Singleton Setup 
@@ -67,11 +70,11 @@ public class LocationServiceHandler : MonoBehaviour
 
     private IEnumerator Start()
     {
-        Debug.Log($"Start() in LocationServiceHandler has been called.");
-
         // Check if the user has location service enabled.
         if (!Input.location.isEnabledByUser)
         {
+            Debug.Log($"GPS is currently disabled on your device.");
+            OnGPSFailure.Invoke();
             yield break;
         }
 
@@ -91,20 +94,21 @@ public class LocationServiceHandler : MonoBehaviour
         // If the service didn't initialize in 20 seconds this cancels location service use.
         if (maxWait < 1)
         {
-            print("Timed out");
+            Debug.Log("Timed out");
             yield break;
         }
 
         // If the connection failed this cancels location service use.
         if (Input.location.status == LocationServiceStatus.Failed)
         {
-            print("Unable to determine device location");
+            Debug.Log("Unable to determine device location");
             yield break;
         }
         else
         {
             // If the connection succeeded, this retrieves the device's current location and displays it in the Console window.
-            print("Location: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
+            Debug.Log("Location Service has been started successfully: " + Input.location.lastData.latitude + " " + Input.location.lastData.longitude + " " + Input.location.lastData.altitude + " " + Input.location.lastData.horizontalAccuracy + " " + Input.location.lastData.timestamp);
+            OnGPSSuccess.Invoke();
         }
 
         // Stops the location service if there is no need to query location updates continuously.
@@ -113,6 +117,11 @@ public class LocationServiceHandler : MonoBehaviour
     }
 
     //# Public Methods 
+    public bool TryStartLocationService()
+    {
+        Start();
+        return Input.location.isEnabledByUser;
+    }
 
     //# Private Methods 
 

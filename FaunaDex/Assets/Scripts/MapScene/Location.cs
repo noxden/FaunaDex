@@ -28,6 +28,7 @@ public static class Location
             return 0;
         }
     }
+    
     public static float longitude
     {
         get

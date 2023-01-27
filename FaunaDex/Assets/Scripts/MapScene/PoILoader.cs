@@ -2,29 +2,26 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 24-01-23
+// Last changed: 27-01-23
 //================================================================
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PoILoader : MonoBehaviour
 {
-    public List<PointOfInterestData> pointOfInterests;
+    public List<PointOfInterestData> pointOfInterestDatas;
 
-    /// <summary>
-    /// Start is called on the frame when a script is enabled just before
-    /// any of the Update methods is called the first time.
-    /// </summary>
     private void Start()
     {
-        foreach (PointOfInterestData poi in pointOfInterests)
+        foreach (PointOfInterestData poiData in pointOfInterestDatas)
         {
-            GameObject go = Instantiate(poi.markerPrefab);
-            go.transform.localScale /= Settings.locationScaleFaktor;
-            go.transform.position = new Vector3(poi.latitude*Settings.locationScaleFaktor, 0, poi.longitude*Settings.locationScaleFaktor);
-            go.name = poi.name;
-            go.GetComponent<PointOfInterest>().SceneToLoad = poi.SceneToLoad;
+            GameObject go = Instantiate(poiData.markerPrefab);
+            //go.transform.localScale /= Settings.locationScaleFaktor;
+            go.transform.position = new Vector3(poiData.latitude*Settings.locationScaleFaktor, 0, poiData.longitude*Settings.locationScaleFaktor);
+            go.name = poiData.name;
+            go.GetComponent<PointOfInterest>().linkedScene = poiData.SceneToLoad;
         }
     }
 }

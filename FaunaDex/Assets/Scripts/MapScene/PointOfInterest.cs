@@ -1,3 +1,10 @@
+//================================================================
+// Darmstadt University of Applied Sciences, Expanded Realities
+// Course:       Project 5 (Grimm, Hausmeier, Vollert)
+// Script by:    Daniel Heilmann (771144)
+// Last changed: 27-01-23
+//================================================================
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,21 +13,23 @@ using UnityEngine;
 
 public class PointOfInterest : MonoBehaviour
 {
-    public Scene SceneToLoad;
+    public Scene linkedScene;
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if (other.TryGetComponent<PlayerMapMarker>(out PlayerMapMarker player))
-        {
-            player.SceneToLoadOnButtonPress = SceneToLoad;
-        }
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.gameObject.TryGetComponent<PlayerMapMarker>(out PlayerMapMarker player))
+    //     {
+    //         Debug.Log($"Player entered zone of {this.name}.");
+    //         player.SceneToLoadOnButtonPress = linkedScene;
+    //     }
+    // }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.TryGetComponent<PlayerMapMarker>(out PlayerMapMarker player))
-        {
-            player.SceneToLoadOnButtonPress = null;
-        }
-    }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.gameObject.TryGetComponent<PlayerMapMarker>(out PlayerMapMarker player))
+    //     {
+    //         Debug.Log($"Player exited zone of {this.name}.");
+    //         player.SceneToLoadOnButtonPress = null;
+    //     }
+    // }
 }

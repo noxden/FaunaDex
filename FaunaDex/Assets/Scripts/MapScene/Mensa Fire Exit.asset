@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 086cb01d770b9a74aa598fbd27b63009, type: 3}
   m_Name: Mensa Fire Exit
   m_EditorClassIdentifier: 
-  markerPrefab: {fileID: 4615227705097110439, guid: 9201dcafaa5aeb54aa9a1b22c9053f75, type: 3}
+  markerPrefab: {fileID: 8478635384896531275, guid: 77d96207258e34544864dc3c0a8f8168, type: 3}
   latitude: 49.90077
   longitude: 8.856246
-  SceneToLoad: 0
+  SceneToLoad: 2

@@ -4,6 +4,7 @@
 // Script by:    Daniel Heilmann (771144)
 // Last changed: 24-01-23
 //================================================================
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,6 +21,6 @@ public class MapSceneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log($"Latitude = {LocationServiceHandler.instance.lastLatitude}, Longitude = {LocationServiceHandler.instance.lastLongitude}");
+        //Debug.Log($"Latitude = {LocationServiceHandler.instance.lastLatitude}, Longitude = {LocationServiceHandler.instance.lastLongitude}");
     }
 }

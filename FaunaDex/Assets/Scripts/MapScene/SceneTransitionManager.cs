@@ -10,7 +10,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public enum Scene { Map, Otter, Dragonfly }
+public enum Scene { Map, Otter, Dragonfly, QuestTracker }
 
 public class SceneTransitionManager
 {
@@ -31,6 +31,8 @@ public class SceneTransitionManager
                 return "OtterScene";
             case Scene.Dragonfly:
                 return "DragonflyScene";
+            case Scene.QuestTracker:
+                return "QuestTracker";
         }
         return "";
     }
