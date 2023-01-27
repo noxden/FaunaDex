@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class CloseWelcomeScreen : MonoBehaviour
 {
-    public GameObject WelcomeScreen;
 
     public void CloseWelcome()
     {
-        WelcomeScreen.SetActive(false);
+        gameObject.SetActive(false);
     }
     // Start is called before the first frame update
     void Start()
