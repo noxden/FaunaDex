@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/RemoteAuthoring.unity
-    guid: a02044db153755f4fb67ebcbfd1f80ef
+    path: Assets/Scenes/MapScene.unity
+    guid: 02b49d2dc8df57044b3e941374278a9a
+  - enabled: 1
+    path: Assets/Scenes/PhotoBooth.unity
+    guid: f71da185cac5a2b4ebbfdd31c3a93c32
   m_configObjects: {}
