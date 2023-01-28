@@ -84,7 +84,7 @@ public class PhotoHandler : MonoBehaviour
         {
             PhotoButton.SetActive(true);
         }
-        Raycaster = new Ray(CamCenter, Camera.transform.forward);
+        Raycaster = new Ray(Camera.transform.position, Camera.transform.forward);
         CamCenter = Camera.rect.center;
         Debug.DrawRay(Camera.transform.position, Camera.transform.forward, Color.green);
 
