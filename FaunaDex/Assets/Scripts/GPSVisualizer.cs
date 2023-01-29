@@ -2,7 +2,7 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 28-01-23
+// Last changed: 29-01-23
 //! FOR DEBUG PURPOSES ONLY!
 //================================================================
 
@@ -24,9 +24,9 @@ public class GPSVisualizer : MonoBehaviour
 
     void Update()
     {
-        tIsEnabled.text = GPSHandler.instance.isEnabled.ToString();
-        tLatitude.text = GPSHandler.instance.lastLatitude.ToString();
-        tLongitude.text = GPSHandler.instance.lastLongitude.ToString();
-        tStatus.text = GPSHandler.instance.status.ToString();
+        tIsEnabled.text = Input.location.isEnabledByUser.ToString();
+        tLatitude.text = Input.location.lastData.latitude.ToString();
+        tLongitude.text = Input.location.lastData.longitude.ToString();
+        tStatus.text = Input.location.status.ToString();
     }
 }

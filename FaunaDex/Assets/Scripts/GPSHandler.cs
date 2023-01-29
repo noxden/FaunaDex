@@ -2,7 +2,7 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 28-01-23
+// Last changed: 29-01-23
 //================================================================
 
 using System.Collections;
@@ -15,55 +15,19 @@ public class GPSHandler : MonoBehaviour
     //# Public Variables 
     public static GPSHandler instance { set; get; }
 
-    [Header("DEBUG AREA")]
     [SerializeField]
-    [Range(49.89f, 49.92f)]
-    private float debugLatitude = 0.0f;
+    private float latitude;
     [SerializeField]
-    [Range(8.85f, 8.87f)]
-    private float debugLongitude = 0.0f;
+    private float longitude;
 
-    public bool isEnabled
-    {
-        get
-        {
-            return Input.location.isEnabledByUser;
-        }
-    }
-
-    public float lastLatitude
-    {
-        get
-        {
-            if (Input.location.status == LocationServiceStatus.Running)
-                return Input.location.lastData.latitude;
-            else
-                return debugLatitude;
-        }
-    }
-
-    public float lastLongitude
-    {
-        get
-        {
-            if (Input.location.status == LocationServiceStatus.Running)
-                return Input.location.lastData.longitude;
-            else
-                return debugLongitude;
-        }
-    }
-
-    public LocationServiceStatus status
-    {
-        get
-        {
-            // if (Input.location.status == LocationServiceStatus.Running)
-                return Input.location.status;
-            // else
-            //     return LocationServiceStatus.Stopped;
-            
-        }
-    }
+    [Space(20)]
+    [Header("DEBUG SECTION")]
+    [SerializeField]
+    [Range(52.04f, 47.77f)]
+    private float debugLatitude = 49.901657f;
+    [SerializeField]
+    [Range(5.38f, 12.31f)]
+    private float debugLongitude = 8.855605f;
 
     //# Private Variables 
 
@@ -71,6 +35,7 @@ public class GPSHandler : MonoBehaviour
     [Space(20)]
     public UnityEvent OnGPSSuccess;
     public UnityEvent OnGPSFailure;
+    public UnityEvent<Vector2> OnGPSUpdate;
 
     //# Monobehaviour Events 
     private void Awake()
@@ -83,11 +48,6 @@ public class GPSHandler : MonoBehaviour
         }
         DontDestroyOnLoad(this.gameObject);
         instance = this;
-
-#if UNITY_EDITOR    //< This actually works! :3
-        debugLatitude = 49.902030f;
-        debugLongitude = 8.855255f;
-#endif
     }
 
     private IEnumerator Start()
@@ -136,6 +96,15 @@ public class GPSHandler : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+#if UNITY_EDITOR
+        DebugCheckForLocationUpdate();
+#elif !UNITY_EDITOR
+        CheckForLocationUpdate();
+#endif
+    }
+
     //# Public Methods 
     public void StartLocationService()
     {
@@ -150,6 +119,37 @@ public class GPSHandler : MonoBehaviour
     }
 
     //# Private Methods 
+    private void CheckForLocationUpdate()
+    {
+        Debug.Log($"GPSHandler: Checking for new location update.", this);
+        if (Input.location.status != LocationServiceStatus.Running)
+        {
+            Debug.LogWarning($"GPSHandler: LocationService is not running.", this);
+            return;
+        }
+
+        float newLatitude = Input.location.lastData.latitude;
+        float newLongitude = Input.location.lastData.longitude;
+
+        if (latitude != newLatitude || longitude != newLongitude)
+        {
+            Debug.Log($"GPSHandler: Detected location update!", this);
+            latitude = newLatitude;
+            longitude = newLongitude;
+            OnGPSUpdate.Invoke(new Vector2(latitude, longitude));
+        }
+    }
+
+    private void DebugCheckForLocationUpdate()
+    {
+        if (debugLatitude != latitude || debugLongitude != longitude)
+        {
+            Debug.Log($"GPSHandler: Detected debug location update!", this);
+            latitude = debugLatitude;
+            longitude = debugLongitude;
+            OnGPSUpdate.Invoke(new Vector2(latitude, longitude));
+        }
+    }
 
     //# Input Event Handlers 
 }
