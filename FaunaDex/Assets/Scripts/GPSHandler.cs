@@ -23,10 +23,15 @@ public class GPSHandler : MonoBehaviour
     [Space(20)]
     [Header("DEBUG SECTION")]
     [SerializeField]
-    [Range(52.04f, 47.77f)]
+    //[Range(52.04f, 47.77f)]
+    //[Range(49.900768f, 49.902002f)]
+    [Range(49.9f, 49.903f)]
     private float debugLatitude = 49.901657f;
+
     [SerializeField]
-    [Range(5.38f, 12.31f)]
+    //[Range(5.38f, 12.31f)]
+    //[Range(8.854852f, 8.856246f)]
+    [Range(8.85f, 8.86f)]
     private float debugLongitude = 8.855605f;
 
     //# Private Variables 
@@ -46,7 +51,7 @@ public class GPSHandler : MonoBehaviour
             DestroyImmediate(this.gameObject);
             return;
         }
-        DontDestroyOnLoad(this.gameObject);
+        // DontDestroyOnLoad(this.gameObject);
         instance = this;
     }
 
@@ -60,6 +65,11 @@ public class GPSHandler : MonoBehaviour
             yield break;
         }
 
+        if (Input.location.status == LocationServiceStatus.Running)
+        {
+            Debug.Log("Location Service is already running. Call \"RestartLocationService()\" instead, if you intended to restart the service.");
+            yield break;
+        }
 
         // Starts the location service.
         Input.location.Start(desiredAccuracyInMeters: 5.0f, updateDistanceInMeters: 10.0f);
@@ -106,9 +116,10 @@ public class GPSHandler : MonoBehaviour
     }
 
     //# Public Methods 
-    public void StartLocationService()
+    public void RestartLocationService()
     {
         StopCoroutine(Start());
+        StopLocationService();
         StartCoroutine(Start());
     }
 

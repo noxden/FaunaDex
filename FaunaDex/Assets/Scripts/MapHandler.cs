@@ -15,11 +15,14 @@ public class MapHandler : MonoBehaviour
     public static MapHandler instance { set; get; }
 
     //# Private Variables 
+    [SerializeField]
     private MapPlayer player;
+
+    [SerializeField]
     private Map map;
 
     [SerializeField]
-    private float pixelPerMeterRatio = 500.0f;
+    private Vector2 pixelPerMeterRatio = new Vector2(1000000.0f, 10000.0f);
 
     private void Awake()
     {
@@ -46,8 +49,9 @@ public class MapHandler : MonoBehaviour
 
     private void UpdateMapPosition()
     {
-        Vector2 adjustedMapPosition = ((player.realWorldLocation - map.realWorldZero) * pixelPerMeterRatio + new Vector2(Screen.width / 2, Screen.height / 2));
-        Debug.Log($"Adjusted map position: {adjustedMapPosition}", this);
-        map.transform.position = adjustedMapPosition;
+        Vector2 adjustedMapPosition = ((player.realWorldLocation - map.realWorldZero) * pixelPerMeterRatio * map.transform.localScale);
+        // Debug.Log($"Current map offset: ({(player.realWorldLocation.x) - map.realWorldZero.x}, {player.realWorldLocation.y - map.realWorldZero.y})");
+        // Debug.Log($"Adjusted map position: {adjustedMapPosition}", this);
+        map.transform.localPosition = adjustedMapPosition;
     }
 }
