@@ -10,7 +10,7 @@ public class DialogueDisplayHelper : MonoBehaviour
     [Header("GameObject Links")]
     [SerializeField]
     private TextMeshProUGUI speakerField;
-    
+
     [SerializeField]
     private TextMeshProUGUI textField;
 
@@ -28,12 +28,16 @@ public class DialogueDisplayHelper : MonoBehaviour
     private DialogueEntry selectedEntry { get { return DialogueEntries[currentDialogueEntriesPosition]; } }
     private bool isCurrentlyDisplaying = false;
 
+    //# Custom Events 
+    [Space(20)]
+    [Header("Events Section")]
     public UnityEvent OnTextFinishedDisplaying;     //?< The indicator for clicking to see the next text could be hooked up to this event.
 
     private void Start()
     {
         if (speakerField == null || textField == null)
             Debug.LogWarning($"You forgot to set mandatory variables in the DialogueDisplayHelper on {this.gameObject.name}!", this);
+        Display();
     }
 
     public void Display()

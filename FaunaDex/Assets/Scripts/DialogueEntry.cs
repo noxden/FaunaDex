@@ -6,5 +6,6 @@ using UnityEngine;
 public class DialogueEntry : ScriptableObject
 {
     public string speaker;
+     [TextArea(1,5)]
     public string text;
 }
