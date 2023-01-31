@@ -7,9 +7,11 @@ using TMPro;
 // TODO: Should this class also decide whether or not the bubble is hidden or should the bubble get it's own helper class for that?
 public class DialogueDisplayHelper : MonoBehaviour
 {
-    [Header("Set this!")]
+    [Header("GameObject Links")]
     [SerializeField]
     private TextMeshProUGUI speakerField;
+    
+    [SerializeField]
     private TextMeshProUGUI textField;
 
     [Space(10)]
