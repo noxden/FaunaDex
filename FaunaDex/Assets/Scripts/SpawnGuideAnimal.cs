@@ -8,16 +8,6 @@ public class SpawnGuideAnimal : MonoBehaviour
 
     private GameObject SpawnedAnimal = null;
 
-    private void Start()
-    {
-
-    }
-
-    private void Update()
-    {
-
-    }
-
     public void OnButtonClick()
     {
         Debug.Log($"Button has been clicked.");
@@ -25,7 +15,7 @@ public class SpawnGuideAnimal : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(ray, out hit))
         {
-            //Debug.DrawRay(Camera.main.transform.position, ray.GetPoint(200.0f), Color.red, 10.0f);
+            Debug.DrawRay(Camera.main.transform.position, Camera.main.transform.forward*100, Color.red, 10.0f);
             if (hit.collider.tag != "ARPlane")
                 return;
 
