@@ -283,7 +283,7 @@ GameObject:
   - component: {fileID: 3291391104981141292}
   m_Layer: 0
   m_Name: OtterPrefab
-  m_TagString: Untagged
+  m_TagString: DialogueAnimal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -319,9 +319,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerField: {fileID: 5869461397370408902}
   textField: {fileID: 7662303029586314028}
-  waitTimeInSeconds: 0.1
   DialogueEntries:
   - {fileID: 11400000, guid: 52bf5588181b0094a8245ed4f7e159a9, type: 2}
+  - {fileID: 11400000, guid: 52bf5588181b0094a8245ed4f7e159a9, type: 2}
+  - {fileID: 11400000, guid: 52bf5588181b0094a8245ed4f7e159a9, type: 2}
+  waitTimeInSeconds: 0.1
+  currentDialogueEntriesPosition: 0
   OnTextFinishedDisplaying:
     m_PersistentCalls:
       m_Calls: []
@@ -338,9 +341,10 @@ GameObject:
   - component: {fileID: 8069814840625698436}
   - component: {fileID: 5296193179903013996}
   - component: {fileID: 3684659776349771311}
+  - component: {fileID: 6859529122745434920}
   m_Layer: 5
   m_Name: Canvas
-  m_TagString: Untagged
+  m_TagString: DialogueAnimal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -352,7 +356,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4179266779084303870}
-  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.005, y: 0.005, z: 0.005}
   m_ConstrainProportionsScale: 1
@@ -362,7 +366,7 @@ RectTransform:
   - {fileID: 1188263214148084278}
   m_Father: {fileID: 4924515207497346973}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 1.5}
@@ -441,6 +445,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f643680c3a25af4abad84f7b04826bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &6859529122745434920
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4179266779084303870}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 187, y: 117.08, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6559027405325003935
 GameObject:
   m_ObjectHideFlags: 0
@@ -588,8 +605,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Otto
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a976735e7d1aab74f812f044cc58c2ff, type: 3}
+      propertyPath: m_TagString
+      value: DialogueAnimal
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a976735e7d1aab74f812f044cc58c2ff, type: 3}
+--- !u!1 &3584466080935964457 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: a976735e7d1aab74f812f044cc58c2ff, type: 3}
+  m_PrefabInstance: {fileID: 4431538980207645304}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4199670063129622179
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3584466080935964457}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.31, y: 3.3, z: 1}
+  m_Center: {x: 0, y: 1.65, z: 0}
 --- !u!4 &4248376883905803667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a976735e7d1aab74f812f044cc58c2ff, type: 3}

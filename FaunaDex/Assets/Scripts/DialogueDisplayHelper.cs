@@ -1,3 +1,10 @@
+//================================================================
+// Darmstadt University of Applied Sciences, Expanded Realities
+// Course:       Project 5 (Grimm, Hausmeier, Vollert)
+// Script by:    Daniel Heilmann (771144)
+// Last changed: 31-01-23
+//================================================================
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,13 +23,14 @@ public class DialogueDisplayHelper : MonoBehaviour
 
     [Space(10)]
     [Header("Tweakable Section")]
-    public float waitTimeInSeconds = 1.0f;  //?< Could be modified while playing by something else? => Fast-forward. 
+    [SerializeField]
+    private List<DialogueEntry> DialogueEntries;
+    public float waitTimeInSeconds = 0.1f;  //?< Could be modified while playing by something else? => Fast-forward. 
                                             //?  But this modification should be done via an additional function call inside DialogueDisplayHelper...
 
     [Space(10)]
     [Header("Visualization Section")]
     [SerializeField]
-    private List<DialogueEntry> DialogueEntries;
     private int currentDialogueEntriesPosition;     //< The index of the currently selected dialogue
 
     private DialogueEntry selectedEntry { get { return DialogueEntries[currentDialogueEntriesPosition]; } }
