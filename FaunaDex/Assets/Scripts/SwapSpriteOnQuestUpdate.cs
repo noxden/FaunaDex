@@ -28,10 +28,20 @@ public class SwapSpriteOnQuestUpdate : MonoBehaviour
     private void OnEnable() => PersistentSaveData.instance.OnQuestUpdated_Otto += OnQuestUpdated;
     private void OnDisable() => PersistentSaveData.instance.OnQuestUpdated_Otto -= OnQuestUpdated;
 
+    private void Start()
+    {
+        CheckQuestStage();
+    }
+
     public void OnQuestUpdated(int newQuestState)
     {
         Debug.Log($"Received Quest Update on {this.name}.");
-        if (newQuestState < requiredQuestStage)
+        CheckQuestStage();        
+    }
+
+    private void CheckQuestStage()
+    {
+        if (PersistentSaveData.instance.questStage_Otto < requiredQuestStage)
             spriteField.sprite = initialSprite;
         else
             spriteField.sprite = finalSprite;
