@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeToScene : MonoBehaviour
+public class ChangeToSceneByPlayer : MonoBehaviour
 {
     public void ChangeToSceneSelectedByPlayer()
     {

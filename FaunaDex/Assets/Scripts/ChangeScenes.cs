@@ -14,4 +14,9 @@ public class ChangeScenes : MonoBehaviour
     {
         SceneTransitionManager.LoadScene(Scene.Otter);
     }
+
+    public void ChangeSceneToDragonflyMode()
+    {
+        SceneTransitionManager.LoadScene(Scene.Dragonfly);
+    }
 }
