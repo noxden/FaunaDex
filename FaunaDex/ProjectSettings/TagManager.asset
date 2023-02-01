@@ -6,6 +6,7 @@ TagManager:
   tags:
   - BlueGoal
   - RedGoal
+  - DialogueAnimal
   layers:
   - Default
   - TransparentFX
