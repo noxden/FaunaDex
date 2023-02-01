@@ -2511,6 +2511,50 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1883787893 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8031235549241952573, guid: 4b0b2e854a6e86442ad57473af799429, type: 3}
+  m_PrefabInstance: {fileID: 3351683007331827420}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1883787896 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1313749210635121408, guid: 4b0b2e854a6e86442ad57473af799429, type: 3}
+  m_PrefabInstance: {fileID: 3351683007331827420}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883787893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8633ffa7db444694b91283b37a6347cc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1883787897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1883787893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb047948878ef949ad121685e6ad4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questStageThreshold: 1
+  OnThresholdReached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1883787896}
+        m_TargetAssemblyTypeName: VPSArea, Assembly-CSharp
+        m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1893359365
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,7 +2716,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2010301874}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f3039c21c18a944f9f6ab829ee50416, type: 3}
+  m_Script: {fileID: 11500000, guid: 5031ea1f2806fed48b49172879fcf8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _questStage_Otto: 0
@@ -3116,6 +3160,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 486497893}
     m_Modifications:
+    - target: {fileID: 1313749210635121408, guid: 4b0b2e854a6e86442ad57473af799429, type: 3}
+      propertyPath: startHidden
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1313749210635121408, guid: 4b0b2e854a6e86442ad57473af799429, type: 3}
       propertyPath: visibleAtQuestStage
       value: 1

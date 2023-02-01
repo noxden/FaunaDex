@@ -9,7 +9,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChangeQuestStageButton : MonoBehaviour
+public class ChangeQuestStage : MonoBehaviour
 {
     [SerializeField]
     private int requiredQuestStage;
@@ -19,9 +19,9 @@ public class ChangeQuestStageButton : MonoBehaviour
 
     public void OnButtonPressed()
     {
-        if (PersistentSaveData.instance.questStage_Otto == requiredQuestStage)
+        if (PersistentQuestData.instance.questStage_Otto == requiredQuestStage)
         {
-            PersistentSaveData.instance.questStage_Otto = changeToStage;
+            PersistentQuestData.instance.questStage_Otto = changeToStage;
         }
     }
 }

@@ -11,9 +11,9 @@ using UnityEngine;
 
 public delegate void IntDelegate(int integer);
 
-public class PersistentSaveData : MonoBehaviour
+public class PersistentQuestData : MonoBehaviour
 {
-    public static PersistentSaveData instance { set; get; }
+    public static PersistentQuestData instance { set; get; }
     public IntDelegate OnQuestUpdated_Otto;
 
     [SerializeField]

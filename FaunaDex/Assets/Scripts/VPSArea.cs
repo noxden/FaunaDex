@@ -14,7 +14,7 @@ public class VPSArea : MonoBehaviour
     public Scene linkedScene;
 
     [SerializeField]
-    private int visibleAtQuestStage;
+    private bool startHidden;
 
     [Tooltip("Only for visualization, do not touch!")]
     [SerializeField]
@@ -28,24 +28,11 @@ public class VPSArea : MonoBehaviour
             children.Add(child);
         }
 
-        CheckQuestStage();
-    }
-
-    public void OnQuestUpdated(int newQuestState)
-    {
-        Debug.Log($"Received Quest Update on {this.name}.");
-        CheckQuestStage();
-    }
-
-    private void CheckQuestStage()
-    {
-        if (PersistentSaveData.instance.questStage_Otto < visibleAtQuestStage)
+        if (startHidden)
             Hide();
-        else
-            Show();
     }
 
-    private void Hide()
+    public void Hide()
     {
         foreach (GameObject child in children)
         {
@@ -53,7 +40,7 @@ public class VPSArea : MonoBehaviour
         }
     }
 
-    private void Show()
+    public void Show()
     {
         foreach (GameObject child in children)
         {

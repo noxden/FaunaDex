@@ -250,13 +250,40 @@ MonoBehaviour:
   m_GameObject: {fileID: 4456311755364808390}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 818b8674a53453a41ae8377aea823b5a, type: 3}
+  m_Script: {fileID: 11500000, guid: 43230f3cd1ddcd444b190a83a4abe82c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteField: {fileID: 4456311755731244949}
-  initialSprite: {fileID: 21300000, guid: 43bfc733f2f83ec4bb9454a71dc0d311, type: 3}
-  finalSprite: {fileID: 21300000, guid: 91e4aad7a0541b648b08c183e001e36c, type: 3}
-  requiredQuestStage: 1
+  spriteOne: {fileID: 21300000, guid: 43bfc733f2f83ec4bb9454a71dc0d311, type: 3}
+  SpriteTwo: {fileID: 21300000, guid: 91e4aad7a0541b648b08c183e001e36c, type: 3}
+--- !u!114 &8269937315858968535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456311755364808390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbb047948878ef949ad121685e6ad4e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questStageThreshold: 1
+  OnThresholdReached:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 87945615950833638}
+        m_TargetAssemblyTypeName: SwitchSprite, Assembly-CSharp
+        m_MethodName: LoadSpriteTwo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &4456311755731244949 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2818398473147259194, guid: f4f6eb2c20ad375499b49b7942487d0c, type: 3}
