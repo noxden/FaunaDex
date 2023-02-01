@@ -26,7 +26,7 @@ public class SceneTransitionManager
         switch (scene)
         {
             case Scene.Map:
-                return "MapScene";
+                return "GPSMapScene";
             case Scene.Otter:
                 return "PhotoBooth";
             case Scene.Dragonfly:
