@@ -28,7 +28,7 @@ public class SceneTransitionManager
             case Scene.Map:
                 return "GPSMapScene";
             case Scene.Otter:
-                return "PhotoBooth";
+                return "OttoScene";
             case Scene.Dragonfly:
                 return "DragonflyScene";
             case Scene.QuestTracker:
