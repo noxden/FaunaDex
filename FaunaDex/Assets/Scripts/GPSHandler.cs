@@ -23,16 +23,17 @@ public class GPSHandler : MonoBehaviour
     [Space(20)]
     [Header("DEBUG SECTION")]
     [SerializeField]
-    //[Range(52.04f, 47.77f)]
     //[Range(49.900768f, 49.902002f)]
     [Range(49.9f, 49.903f)]
-    private float debugLatitude = 49.901657f;
+    public float debugLatitude = 49.901657f;
 
     [SerializeField]
-    //[Range(5.38f, 12.31f)]
     //[Range(8.854852f, 8.856246f)]
     [Range(8.85f, 8.86f)]
-    private float debugLongitude = 8.855605f;
+    public float debugLongitude = 8.855605f;
+
+    [SerializeField]
+    public bool debugMode;
 
     //# Private Variables 
 
@@ -53,6 +54,10 @@ public class GPSHandler : MonoBehaviour
         }
         // DontDestroyOnLoad(this.gameObject);
         instance = this;
+
+#if UNITY_EDITOR
+        debugMode = true;
+#endif
     }
 
     private IEnumerator Start()
@@ -108,11 +113,10 @@ public class GPSHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-#if UNITY_EDITOR
-        DebugCheckForLocationUpdate();
-#elif !UNITY_EDITOR
-        CheckForLocationUpdate();
-#endif
+        if (debugMode)
+            DebugCheckForLocationUpdate();
+        else
+            CheckForLocationUpdate();
     }
 
     //# Public Methods 
