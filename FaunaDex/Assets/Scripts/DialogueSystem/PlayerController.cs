@@ -2,7 +2,7 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 31-01-23
+// Last changed: 03-02-23
 //================================================================
 
 using System.Collections;
@@ -37,7 +37,8 @@ public class PlayerController : MonoBehaviour
             if (hitInfo.collider.tag == "DialogueAnimal")
             {
                 Debug.Log($"PlayerController: It's a DialogueAnimal!", this);
-                hitInfo.collider.GetComponentInParent<DialogueDisplayHelper>()?.Display();
+                // hitInfo.collider.GetComponentInParent<DialogueLink>()?.linkedDisplayHelper.Display();
+                FindObjectOfType<DialogueDisplayHelper>().Display();
             }
         }
     }
