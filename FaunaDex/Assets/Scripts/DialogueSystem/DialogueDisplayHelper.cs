@@ -2,7 +2,7 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 31-01-23
+// Last changed: 03-02-23
 //================================================================
 
 using System.Collections;
@@ -11,7 +11,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using TMPro;
 
-// TODO: Should this class also decide whether or not the bubble is hidden or should the bubble get it's own helper class for that?
 public class DialogueDisplayHelper : MonoBehaviour
 {
     [Header("GameObject Links")]
@@ -20,6 +19,7 @@ public class DialogueDisplayHelper : MonoBehaviour
 
     [SerializeField]
     private TextMeshProUGUI textField;
+    private DialogueBubble dialogueBubble;
 
     [Space(10)]
     [Header("Tweakable Section")]
@@ -27,7 +27,6 @@ public class DialogueDisplayHelper : MonoBehaviour
     private List<DialogueEntry> DialogueEntries;
     public float waitTimeInSeconds = 0.1f;  //?< Could be modified while playing by something else? => Fast-forward. 
                                             //?  But this modification should be done via an additional function call inside DialogueDisplayHelper...
-
     [Space(10)]
     [Header("Visualization Section")]
     [SerializeField]
@@ -47,9 +46,10 @@ public class DialogueDisplayHelper : MonoBehaviour
 
     private void Start()
     {
+        dialogueBubble = FindObjectOfType<DialogueBubble>();
+
         if (speakerField == null || textField == null)
             Debug.LogWarning($"You forgot to set mandatory variables in the DialogueDisplayHelper on {this.gameObject.name}!", this);
-        Display();
     }
 
     public void Display()
@@ -69,9 +69,17 @@ public class DialogueDisplayHelper : MonoBehaviour
         speakerField.text = DialogueEntries[currentDialogueEntriesPosition].speaker;
         if (string.IsNullOrWhiteSpace(speakerField.text))
         {
-            HideCanvas(true);
+            // Debug.Log($"DisplayTextGradually was called even though speaker is empty.");
+            HideDialogueBubble(true);
+            currentDialogueEntriesPosition += 1;
+            isCurrentlyDisplaying = false;
             yield break;
         }
+        else
+        {
+            HideDialogueBubble(false);
+        }
+
 
         string text = selectedEntry.text;
         string displayedText = "";
@@ -91,8 +99,11 @@ public class DialogueDisplayHelper : MonoBehaviour
         OnTextFinishedDisplaying.Invoke();
     }
 
-    private void HideCanvas(bool value)
+    private void HideDialogueBubble(bool value)
     {
-        speakerField.canvas.enabled = !value;
+        if (value == true)
+            dialogueBubble.Hide();
+        else
+            dialogueBubble.Show();
     }
 }
