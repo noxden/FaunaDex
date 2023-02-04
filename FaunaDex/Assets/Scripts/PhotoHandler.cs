@@ -1,6 +1,5 @@
 using System.Collections;
 using UnityEngine;
-using UnityEngine.UI;
 using Image = UnityEngine.UI.Image;
 
 
@@ -54,11 +53,11 @@ public class PhotoHandler : MonoBehaviour
         if (RaycastHit)
         {
             Debug.Log("Hit");
-            Texture2D myTexture = toTexture2D(tex);
+            ScreenshotTexture = toTexture2D(tex);
             //ScreenshotTexture = ScreenCapture.CaptureScreenshotAsTexture();
             StartCoroutine(ScreenshotFlashing());
             MeshRenderer[] mat = Polaroid.GetComponentsInChildren<MeshRenderer>();
-            mat[1].material.mainTexture = myTexture;
+            mat[1].material.mainTexture = ScreenshotTexture;
         }
     }
 
@@ -111,7 +110,7 @@ public class PhotoHandler : MonoBehaviour
 
     Texture2D toTexture2D(RenderTexture rTex)
     {
-        Texture2D tex = new Texture2D(512, 512, TextureFormat.RGB24, false);
+        Texture2D tex = new Texture2D(1440, 1440, TextureFormat.RGB24, false);
         RenderTexture.active = rTex;
         tex.ReadPixels(new Rect( 0, 0, rTex.width, rTex.height), 0, 0);
         tex.Apply();
