@@ -44,6 +44,10 @@ public class GPSHandler : MonoBehaviour
     public UnityEvent<Vector2> OnGPSUpdate;
 
     //# Monobehaviour Events 
+
+    private void OnEnable() => SceneTransitionManager.OnSceneChanged += this.OnSceneChanged;
+    private void OnDisable() => SceneTransitionManager.OnSceneChanged -= this.OnSceneChanged;
+
     private void Awake()
     {
         //# Singleton Setup 
@@ -166,5 +170,12 @@ public class GPSHandler : MonoBehaviour
         }
     }
 
-    //# Input Event Handlers 
+    //# Event Handlers 
+    private void OnSceneChanged(Scene newScene)
+    {
+        if (newScene == Scene.Map)
+            RestartLocationService();
+        else
+            StopLocationService();
+    }
 }

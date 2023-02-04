@@ -16,12 +16,13 @@ public class VPSArea : MonoBehaviour
     [SerializeField]
     private bool startHidden;
 
-    [Tooltip("Only for visualization, do not touch!")]
-    [SerializeField]
+    // [Tooltip("Only for visualization, do not touch!")]
+    // [SerializeField]
     private List<GameObject> children;
 
     private void Start()
     {
+        children = new List<GameObject>();
         for (int i = 0; i < transform.childCount; i++)
         {
             GameObject child = transform.GetChild(i).gameObject;

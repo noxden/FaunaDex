@@ -15,6 +15,7 @@ public class MapHandler : MonoBehaviour
     public static MapHandler instance { set; get; }
 
     //# Private Variables 
+    [Header("Visualization Section")]
     [SerializeField]
     private MapPlayer player;
 
@@ -22,7 +23,12 @@ public class MapHandler : MonoBehaviour
     private Map map;
 
     [SerializeField]
-    private Vector2 pixelPerMeterRatio = new Vector2(1000000.0f, 10000.0f);
+    private Vector2 playerOffset;
+
+    [Space(10)]
+    [Header("Tweakable Section")]
+    [SerializeField]
+    private Vector2 pixelPerMeterRatio = new Vector2(259606.9869f, 411335.012594f);
 
     private void Awake()
     {
@@ -43,16 +49,16 @@ public class MapHandler : MonoBehaviour
 
     public void OnGPSUpdate(Vector2 location)
     {
-        player.realWorldLocation = location;
+        player.realWorldLocation = location;    //!< Probably shouldnt be set from here
         UpdateMapPosition();
     }
 
     private void UpdateMapPosition()
     {
-        //! Longitude and latitude just have different scopes... Lat is between 45 and 50 while Long is between 8 and 9...
+        // playerOffset = (player.realWorldLocation - map.realWorldZero) * pixelPerMeterRatio;
         Vector2 adjustedMapPosition = ((player.realWorldLocation - map.realWorldZero) * pixelPerMeterRatio * map.transform.localScale);
-        // Debug.Log($"Current map offset: ({(player.realWorldLocation.x) - map.realWorldZero.x}, {player.realWorldLocation.y - map.realWorldZero.y})");
-        // Debug.Log($"Adjusted map position: {adjustedMapPosition}", this);
+        // // Debug.Log($"Current map offset: ({(player.realWorldLocation.x) - map.realWorldZero.x}, {player.realWorldLocation.y - map.realWorldZero.y})");
+        // // Debug.Log($"Adjusted map position: {adjustedMapPosition}", this);
         map.transform.localPosition = adjustedMapPosition;
     }
 }

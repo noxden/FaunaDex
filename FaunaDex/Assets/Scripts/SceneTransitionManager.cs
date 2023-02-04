@@ -12,12 +12,17 @@ using UnityEngine.SceneManagement;
 
 public enum Scene { Map, Otter, Dragonfly, QuestTracker }
 
+public delegate void SceneDelegate(Scene scene);
+
 public class SceneTransitionManager
 {
+    public static SceneDelegate OnSceneChanged;
+
     //# Public Methods 
     public static void LoadScene(Scene scene)
     {
         SceneManager.LoadSceneAsync(ResolveSceneName(scene));
+        OnSceneChanged.Invoke(scene);
     }
 
     //# Private Methods 
@@ -26,7 +31,7 @@ public class SceneTransitionManager
         switch (scene)
         {
             case Scene.Map:
-                return "GPSMapScene";
+                return "MapScene";
             case Scene.Otter:
                 return "OttoScene";
             case Scene.Dragonfly:
