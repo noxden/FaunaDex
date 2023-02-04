@@ -2,7 +2,7 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 03-02-23
+// Last changed: 04-02-23
 //================================================================
 
 using System.Collections;
@@ -41,7 +41,7 @@ public class DialogueDisplayHelper : MonoBehaviour
     [Space(10)]
     [Header("Events Section")]
     [Space(5)]
-    public UnityEvent OnTextStartedDisplaying;
+    public UnityEvent<List<Expression>> OnTextStartedDisplaying;
     public UnityEvent OnTextFinishedDisplaying;     //?< The indicator for clicking to see the next text could be hooked up to this event.
 
     private void Start()
@@ -63,16 +63,12 @@ public class DialogueDisplayHelper : MonoBehaviour
 
     private IEnumerator DisplayTextGradually()
     {
-        isCurrentlyDisplaying = true;
-        OnTextStartedDisplaying.Invoke();
-
         speakerField.text = DialogueEntries[currentDialogueEntriesPosition].speaker;
         if (string.IsNullOrWhiteSpace(speakerField.text))
         {
             // Debug.Log($"DisplayTextGradually was called even though speaker is empty.");
             HideDialogueBubble(true);
             currentDialogueEntriesPosition += 1;
-            isCurrentlyDisplaying = false;
             yield break;
         }
         else
@@ -80,6 +76,8 @@ public class DialogueDisplayHelper : MonoBehaviour
             HideDialogueBubble(false);
         }
 
+        isCurrentlyDisplaying = true;
+        OnTextStartedDisplaying.Invoke(selectedEntry.expressions);
 
         string text = selectedEntry.text;
         string displayedText = "";
