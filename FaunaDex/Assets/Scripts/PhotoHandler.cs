@@ -10,6 +10,7 @@ public class PhotoHandler : MonoBehaviour
     public GameObject PolaroidObject;
     public GameObject ScreenshotFlash;
     public GameObject PhotoButton;
+    public RenderTexture tex;
     
     private Vector2 CamCenter { get; set; }
     private GameObject Polaroid { get; set; }
@@ -17,6 +18,8 @@ public class PhotoHandler : MonoBehaviour
     private Texture2D ScreenshotTexture { get; set; }
     
     private Ray Raycaster { get; set; }
+
+    private MenuButtonHelper ButtonHandler => PhotoButton.GetComponent<MenuButtonHelper>();
     
     private bool RaycastHit => Physics.Raycast(Raycaster, out _, Mathf.Infinity, LayerMask.GetMask("RaycastTarget"));
 
@@ -50,7 +53,8 @@ public class PhotoHandler : MonoBehaviour
         if (RaycastHit)
         {
             Debug.Log("Hit");
-            ScreenshotTexture = ScreenCapture.CaptureScreenshotAsTexture();
+            ScreenshotTexture = toTexture2D(tex);
+            //ScreenshotTexture = ScreenCapture.CaptureScreenshotAsTexture();
             StartCoroutine(ScreenshotFlashing());
             MeshRenderer[] mat = Polaroid.GetComponentsInChildren<MeshRenderer>();
             mat[1].material.mainTexture = ScreenshotTexture;
@@ -78,11 +82,13 @@ public class PhotoHandler : MonoBehaviour
     {
         if (!RaycastHit)
         {
-            PhotoButton.SetActive(false);
+            ButtonHandler.DeactivateButton();
+            //PhotoButton.SetActive(false);
         }
         else
         {
-            PhotoButton.SetActive(true);
+            ButtonHandler.ActivateButton();
+            //PhotoButton.SetActive(true);
         }
         Raycaster = new Ray(Camera.transform.position, Camera.transform.forward);
         CamCenter = Camera.rect.center;
@@ -100,5 +106,14 @@ public class PhotoHandler : MonoBehaviour
         ScreenshotFlash.SetActive(true);
         yield return new WaitForSeconds(0.1f);
         ScreenshotFlash.SetActive(false);
+    }
+
+    Texture2D toTexture2D(RenderTexture rTex)
+    {
+        Texture2D tex = new Texture2D(1440, 1440, TextureFormat.RGB24, false);
+        RenderTexture.active = rTex;
+        tex.ReadPixels(new Rect( 0, 0, rTex.width, rTex.height), 0, 0);
+        tex.Apply();
+        return tex;
     }
 }
