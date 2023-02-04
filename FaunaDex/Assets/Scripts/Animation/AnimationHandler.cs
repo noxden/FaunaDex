@@ -21,6 +21,9 @@ public class AnimationHandler : MonoBehaviour
     [SerializeField]
     private Animator faceAnimator;
 
+    [SerializeField]
+    private bool isWelcoming = true;
+
     private int bodyHasPicture = Animator.StringToHash("HasPicture");   //< bool
     private int bodyIsTurningR = Animator.StringToHash("IsTurningR");   //< bool
     private int bodyIsTurningL = Animator.StringToHash("IsTurningL");   //< bool
@@ -33,14 +36,9 @@ public class AnimationHandler : MonoBehaviour
     private void Start()
     {
         dialogueDisplayHelper = FindObjectOfType<DialogueDisplayHelper>();
-
-        if (bodyAnimator == null || faceAnimator == null)
-            Debug.LogWarning($"AnimationHelper: You forgot to set the animators in the editor!", this);
-
-        //bodyAnimator.SetBool(faceIsHappy, true);
     }
 
-    public void eAssignAnimators()
+    public void AssignAnimators()
     {
         List<AnimatorHelper> animatorHelpers = new List<AnimatorHelper>(FindObjectsOfType<AnimatorHelper>());
         foreach (var entry in animatorHelpers)
@@ -57,5 +55,75 @@ public class AnimationHandler : MonoBehaviour
                     break;
             }
         }
+    }
+
+    public void OnTextStartedDisplaying(List<Expression> expressions)
+    {
+        if (isWelcoming)
+            StopWelcoming();
+
+        IsTalkingTrue();
+
+        foreach (var expression in expressions)
+        {
+            switch (expression)
+            {
+                case Expression.Neutral:
+                    IsHappyFalse();
+                    break;
+                case Expression.Happy:
+                    IsHappyTrue();
+                    break;
+                case Expression.Idle:
+                    AwaitsPictureFalse();
+                    break;
+                case Expression.Awaiting:
+                    AwaitsPictureTrue();
+                    break;
+            }
+        }
+
+        if (bodyAnimator == null || faceAnimator == null)
+            Debug.LogError($"AnimationHelper: The animators could not be set!", this);
+    }
+
+    public void OnTextFinishedDisplaying()
+    {
+        IsTalkingFalse();
+    }
+
+    private void StopWelcoming()
+    {
+        bodyAnimator.SetTrigger(bodyHasFinishedWaving);
+        faceAnimator.SetTrigger(faceHasFinishedEntryFace);
+        isWelcoming = false;
+    }
+
+    private void IsTalkingTrue()
+    {
+        faceAnimator.SetBool(faceIsTalking, true);
+    }
+    private void IsTalkingFalse()
+    {
+        faceAnimator.SetBool(faceIsTalking, false);
+    }
+
+    private void IsHappyTrue()
+    {
+        faceAnimator.SetBool(faceIsHappy, true);
+    }
+    private void IsHappyFalse()
+    {
+        faceAnimator.SetBool(faceIsHappy, false);
+    }
+
+
+    private void AwaitsPictureTrue()
+    {
+        bodyAnimator.SetBool(bodyHasPicture, true);
+    }
+    private void AwaitsPictureFalse()
+    {
+        bodyAnimator.SetBool(bodyHasPicture, false);
     }
 }

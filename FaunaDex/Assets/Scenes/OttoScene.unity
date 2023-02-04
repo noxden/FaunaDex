@@ -301,6 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bodyAnimator: {fileID: 0}
   faceAnimator: {fileID: 0}
+  isWelcoming: 1
 --- !u!4 &189831478
 Transform:
   m_ObjectHideFlags: 0
@@ -1133,7 +1134,7 @@ MonoBehaviour:
   speakerField: {fileID: 1237319431}
   textField: {fileID: 1567373051}
   DialogueEntries:
-  - {fileID: 11400000, guid: e100952d27f90364789571050863243c, type: 2}
+  - {fileID: 11400000, guid: 48aca4ebdd1ff874e89a20cd01caa6f9, type: 2}
   - {fileID: 11400000, guid: bb1eccccb7042c445a9ca47f60c2bd37, type: 2}
   - {fileID: 11400000, guid: 8199c00de8eebe64a88a11bd1bc59b5c, type: 2}
   - {fileID: 11400000, guid: abbe8ba113a535f429c06b0cedf4bbd6, type: 2}
@@ -1156,12 +1157,36 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 189831477}
+        m_TargetAssemblyTypeName: AnimationHandler, Assembly-CSharp
+        m_MethodName: OnTextStartedDisplaying
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   OnTextFinishedDisplaying:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 689443117}
         m_TargetAssemblyTypeName: ContinueIndicator, Assembly-CSharp
         m_MethodName: Show
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 189831477}
+        m_TargetAssemblyTypeName: AnimationHandler, Assembly-CSharp
+        m_MethodName: OnTextFinishedDisplaying
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1356,7 +1381,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 348098271016087319, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
       propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
-      value: eAssignAnimators
+      value: AssignAnimators
       objectReference: {fileID: 0}
     - target: {fileID: 348098271016087319, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
       propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
