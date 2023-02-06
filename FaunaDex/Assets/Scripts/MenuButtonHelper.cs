@@ -24,6 +24,7 @@ public class MenuButtonHelper : MonoBehaviour
         if (button == null)
             button = GetComponent<Button>();
         //button.colors.disabledColor = button.colors.normalColor;
+        button.interactable = false;
     }
 
     public void ActivateButton()
