@@ -82,7 +82,7 @@ PrefabInstance:
     - target: {fileID: 2818398473147259194, guid: f4f6eb2c20ad375499b49b7942487d0c, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: 43bfc733f2f83ec4bb9454a71dc0d311, type: 3}
+      objectReference: {fileID: 21300000, guid: 456c94d03d3021e47838c15757cefdf4, type: 3}
     - target: {fileID: 2818398473514825833, guid: f4f6eb2c20ad375499b49b7942487d0c, type: 3}
       propertyPath: m_Name
       value: VPSArea_Otter
@@ -254,8 +254,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spriteField: {fileID: 4456311755731244949}
-  spriteOne: {fileID: 21300000, guid: 43bfc733f2f83ec4bb9454a71dc0d311, type: 3}
-  SpriteTwo: {fileID: 21300000, guid: 91e4aad7a0541b648b08c183e001e36c, type: 3}
+  spriteOne: {fileID: 21300000, guid: 456c94d03d3021e47838c15757cefdf4, type: 3}
+  SpriteTwo: {fileID: 21300000, guid: ab8d73ddf518ffc429108c488ee5c2b8, type: 3}
 --- !u!114 &8269937315858968535
 MonoBehaviour:
   m_ObjectHideFlags: 0
