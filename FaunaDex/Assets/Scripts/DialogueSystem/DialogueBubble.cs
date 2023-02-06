@@ -30,7 +30,7 @@ public class DialogueBubble : MonoBehaviour
         AttachToAnchor();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         if (dialogueAnchor == null)
             AttachToAnchor();
@@ -41,9 +41,12 @@ public class DialogueBubble : MonoBehaviour
         dialogueAnchor = GameObject.FindWithTag("DialogueAnchor");
         if (dialogueAnchor != null)
         {
-            this.transform.SetParent(dialogueAnchor.transform, false);
-            Show();
-            OnAnchorFound.Invoke();
+            if (dialogueAnchor.activeInHierarchy)
+            {
+                this.transform.SetParent(dialogueAnchor.transform, false);
+                Show();
+                OnAnchorFound.Invoke();
+            }
         }
     }
 
