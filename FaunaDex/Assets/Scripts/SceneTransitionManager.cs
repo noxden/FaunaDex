@@ -2,7 +2,7 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 24-01-23
+// Last changed: 06-02-23
 //================================================================
 
 using System.Collections;
@@ -12,12 +12,18 @@ using UnityEngine.SceneManagement;
 
 public enum Scene { Map, Otter, Dragonfly, QuestTracker }
 
+public delegate void SceneDelegate(Scene scene);
+
 public class SceneTransitionManager
 {
+    
+    public static SceneDelegate OnSceneChanged;
+
     //# Public Methods 
     public static void LoadScene(Scene scene)
     {
         SceneManager.LoadSceneAsync(ResolveSceneName(scene));
+        OnSceneChanged.Invoke(scene);
     }
 
     //# Private Methods 

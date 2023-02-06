@@ -2,7 +2,7 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 29-01-23
+// Last changed: 06-02-23
 //================================================================
 
 using System.Collections;
@@ -59,6 +59,9 @@ public class GPSHandler : MonoBehaviour
         debugMode = true;
 #endif
     }
+
+    private void OnEnable() => SceneTransitionManager.OnSceneChanged += this.OnSceneChanged;
+    private void OnDisable() => SceneTransitionManager.OnSceneChanged -= this.OnSceneChanged;
 
     private IEnumerator Start()
     {
@@ -167,4 +170,11 @@ public class GPSHandler : MonoBehaviour
     }
 
     //# Input Event Handlers 
+    private void OnSceneChanged(Scene newScene)
+    {
+        if (newScene == Scene.Map)
+            RestartLocationService();
+        else
+            StopLocationService();
+    }
 }
