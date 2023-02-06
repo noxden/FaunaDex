@@ -55,6 +55,9 @@ public class AnimationHandler : MonoBehaviour
                     break;
             }
         }
+
+        if (bodyAnimator == null || faceAnimator == null)
+            Debug.LogError($"AnimationHelper: The animators could not be set!", this);
     }
 
     public void OnTextStartedDisplaying(List<Expression> expressions)
@@ -82,9 +85,6 @@ public class AnimationHandler : MonoBehaviour
                     break;
             }
         }
-
-        if (bodyAnimator == null || faceAnimator == null)
-            Debug.LogError($"AnimationHelper: The animators could not be set!", this);
     }
 
     public void OnTextFinishedDisplaying()

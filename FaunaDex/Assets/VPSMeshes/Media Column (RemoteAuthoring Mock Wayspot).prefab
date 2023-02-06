@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 3318681487775671105}
   - component: {fileID: 122810010964421925}
   - component: {fileID: 4192399700052696063}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Media Column (Wayspot Mesh)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
