@@ -17,8 +17,8 @@ public class VPSArea : MonoBehaviour
     private bool startHidden;
 
     [Tooltip("Only for visualization, do not touch!")]
-    [SerializeField]
-    private List<GameObject> children;
+    //[SerializeField]
+    private List<GameObject> children = new List<GameObject>();
 
     private void Start()
     {
