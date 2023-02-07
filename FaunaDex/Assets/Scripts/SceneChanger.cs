@@ -1,17 +1,26 @@
-//================================================================
-// Darmstadt University of Applied Sciences, Expanded Realities
-// Course:       Project 5 (Grimm, Hausmeier, Vollert)
-// Script by:    Daniel Heilmann (771144)
-// Last changed: 29-01-23
-//================================================================
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class ChangeToSceneByPlayer : MonoBehaviour
+public class SceneChanger : MonoBehaviour
 {
-    public void ChangeToSceneSelectedByPlayer()
+    public void ChangeSceneToMap()
+    {
+        SceneTransitionManager.LoadScene(Scene.Map);
+    }
+
+    public void ChangeSceneToOttoMode()
+    {
+        SceneTransitionManager.LoadScene(Scene.Otter);
+    }
+
+    public void ChangeSceneToDragonflyMode()
+    {
+        SceneTransitionManager.LoadScene(Scene.Dragonfly);
+    }
+
+    public void ChangeSceneToPlayerSelection()
     {
         MapPlayer player = FindObjectOfType<MapPlayer>();
         if (player?.selectedScene != null)
