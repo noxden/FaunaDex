@@ -2,7 +2,7 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 04-02-23
+// Last changed: 06-02-23
 //================================================================
 
 using System.Collections;
@@ -23,12 +23,13 @@ public class DialogueDisplayHelper : MonoBehaviour
 
     [Space(10)]
     [Header("Tweakable Section")]
-    [SerializeField]
-    private List<DialogueEntry> DialogueEntries;
     public float waitTimeInSeconds = 0.1f;  //?< Could be modified while playing by something else? => Fast-forward. 
                                             //?  But this modification should be done via an additional function call inside DialogueDisplayHelper...
     [Space(10)]
     [Header("Visualization Section")]
+    [SerializeField]
+    private List<DialogueEntry> DialogueEntries = new List<DialogueEntry>();
+
     [SerializeField]
     private int currentDialogueEntriesPosition;     //< The index of the currently selected dialogue
 
@@ -48,12 +49,16 @@ public class DialogueDisplayHelper : MonoBehaviour
     {
         dialogueBubble = FindObjectOfType<DialogueBubble>();
 
+
         if (speakerField == null || textField == null)
             Debug.LogWarning($"You forgot to set mandatory variables in the DialogueDisplayHelper on {this.gameObject.name}!", this);
     }
 
     public void Display()
     {
+        if (DialogueEntries.Count == 0)
+            DialogueEntries = FindObjectOfType<DialogueLibrary>().GetDialogueEntries();
+
         if (currentDialogueEntriesPosition >= DialogueEntries.Count)    //< If index out of bounds
             return;
         if (isCurrentlyDisplaying)
@@ -63,6 +68,7 @@ public class DialogueDisplayHelper : MonoBehaviour
 
     private IEnumerator DisplayTextGradually()
     {
+        Debug.Log($"Coroutine was started.");
         speakerField.text = DialogueEntries[currentDialogueEntriesPosition].speaker;
         if (string.IsNullOrWhiteSpace(speakerField.text))
         {

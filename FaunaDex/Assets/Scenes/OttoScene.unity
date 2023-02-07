@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731332, g: 0.13414454, b: 0.12108202, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -787,14 +787,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533618437}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.9659259, y: -0, z: 0.258819, w: 0}
   m_LocalPosition: {x: 0.39752907, y: -0.7527127, z: 2.7879746}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 180, y: -30, z: 0}
 --- !u!114 &689443117 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 348098268927462053, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
@@ -1120,13 +1120,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerField: {fileID: 1237319431}
   textField: {fileID: 1567373051}
-  DialogueEntries:
-  - {fileID: 11400000, guid: 48aca4ebdd1ff874e89a20cd01caa6f9, type: 2}
-  - {fileID: 11400000, guid: bb1eccccb7042c445a9ca47f60c2bd37, type: 2}
-  - {fileID: 11400000, guid: 8199c00de8eebe64a88a11bd1bc59b5c, type: 2}
-  - {fileID: 11400000, guid: abbe8ba113a535f429c06b0cedf4bbd6, type: 2}
-  - {fileID: 11400000, guid: e100952d27f90364789571050863243c, type: 2}
   waitTimeInSeconds: 0.1
+  DialogueEntries: []
   currentDialogueEntriesPosition: 0
   isCurrentlyDisplaying: 0
   OnTextStartedDisplaying:
@@ -1521,6 +1516,57 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1963075372
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963075373}
+  - component: {fileID: 1963075374}
+  m_Layer: 0
+  m_Name: DialogueLibrary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1963075373
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963075372}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1963075374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963075372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2fbc0c5a40adcc942a37777b322b7b68, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  questStage: 0
+  Dialogues:
+  - {fileID: 11400000, guid: 0d0cf86d3f7cbb84c930a9f1816438fb, type: 2}
+  - {fileID: 11400000, guid: 31530b455c957344b82817a682135a5e, type: 2}
+  - {fileID: 11400000, guid: 91901a33b963c0247902e598f43d9dcb, type: 2}
+  - {fileID: 11400000, guid: 82be6e8bf6b36e04f841264fb62c98d8, type: 2}
+  ErrorDialogue: {fileID: 11400000, guid: e932d9eb7fc6c2246b6a759c58ef80e8, type: 2}
 --- !u!1001 &348098269613759368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1543,22 +1589,30 @@ PrefabInstance:
     - target: {fileID: 348098271016087319, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
       propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1240141025}
+      objectReference: {fileID: 189831477}
     - target: {fileID: 348098271016087319, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
       propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 189831477}
+      objectReference: {fileID: 1240141025}
     - target: {fileID: 348098271016087319, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
       propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 348098271016087319, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
-      propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: AssignAnimators
       objectReference: {fileID: 0}
     - target: {fileID: 348098271016087319, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
-      propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Display
+      objectReference: {fileID: 0}
+    - target: {fileID: 348098271016087319, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
+      propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: AnimationHandler, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 348098271016087319, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
+      propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: DialogueDisplayHelper, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 348098271016087319, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
       propertyPath: OnAnchorFound.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName

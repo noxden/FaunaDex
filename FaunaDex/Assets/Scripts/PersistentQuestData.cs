@@ -2,7 +2,12 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 01-02-23
+// Last changed: 06-02-23
+//================================================================
+//* QuestStage 0 = Started App
+//* QuestStage 1 = Accepted Quest from Otto
+//* QuestStage 2 = Took Photo of Dragonfly
+//* QuestStage 3 = Handed over Photo to Otto, Took Photo of Otto
 //================================================================
 
 using System.Collections;
