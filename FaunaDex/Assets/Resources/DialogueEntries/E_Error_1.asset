@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d76ad6dc75e687641856d94d93d6df8b, type: 3}
-  m_Name: Otto_1
+  m_Name: E_Error_1
   m_EditorClassIdentifier: 
   speaker: Otto
-  text: Moin! How are you today? Would you like to help me with something? It's not
-    going to take long, I promise!
+  text: Huh, that's weird... I forgot what I wanted to say...
   expressions: 0000000002000000

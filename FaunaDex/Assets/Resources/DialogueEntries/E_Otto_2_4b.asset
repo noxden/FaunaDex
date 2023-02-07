@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d76ad6dc75e687641856d94d93d6df8b, type: 3}
-  m_Name: End_Conversation
+  m_Name: E_Otto_2_4b
   m_EditorClassIdentifier: 
-  speaker: 
-  text: 'ERROR: THIS SHOULD NOT BE VISIBLE.'
-  expressions: 
+  speaker: Otto
+  text: But recently I've though about moving back. Are you also from around here?
+  expressions: 0000000002000000
