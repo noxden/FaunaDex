@@ -1,10 +1,18 @@
+//================================================================
+// Darmstadt University of Applied Sciences, Expanded Realities
+// Course:       Project 5 (Grimm, Hausmeier, Vollert)
+// Script by:    Max von Trümbach, Daniel Heilmann (771144)
+// Last changed: 07-02-23
+//================================================================
+
 using System.Collections;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
 
-
 public class PhotoHandler : MonoBehaviour
 {
+    [SerializeField]
+    public bool isPhotoTakingEnabled;
     public Camera Camera;
     public Canvas Canvas;
     public GameObject PolaroidObject;
@@ -78,8 +86,20 @@ public class PhotoHandler : MonoBehaviour
             ScreenshotObject.GetComponent<Image>().sprite = sprite; 
         }
     }
+
     void Update()
     {
+        if (!isPhotoTakingEnabled && PhotoButton.activeInHierarchy)
+        {
+            PhotoButton.SetActive(false);
+            return;
+        }
+        else if (isPhotoTakingEnabled && !PhotoButton.activeInHierarchy)
+        {
+            PhotoButton.SetActive(true);
+        }
+
+
         if (!RaycastHit)
         {
             ButtonHandler.DeactivateButton();

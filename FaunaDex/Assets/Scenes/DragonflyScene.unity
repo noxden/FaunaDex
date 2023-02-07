@@ -1532,6 +1532,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8745cedea8eedc43b25251d107fe4c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isPhotoTakingEnabled: 1
   Camera: {fileID: 283221177}
   Canvas: {fileID: 1324837169}
   PolaroidObject: {fileID: 327958374783202611, guid: ccbba4cff5060644ab4a4c36243ead20, type: 3}

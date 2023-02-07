@@ -33,7 +33,7 @@ public class DialogueDisplayHelper : MonoBehaviour
     [SerializeField]
     private int currentDialogueEntriesPosition;     //< The index of the currently selected dialogue
 
-    private DialogueEntry selectedEntry { get { return DialogueEntries[currentDialogueEntriesPosition]; } }
+    public DialogueEntry selectedEntry { get { return DialogueEntries[currentDialogueEntriesPosition]; } }
 
     [SerializeField]
     private bool isCurrentlyDisplaying = false;
