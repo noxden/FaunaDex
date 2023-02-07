@@ -13,6 +13,23 @@ public class LayerHelper : MonoBehaviour
 {
     public void SetLayerToRaycastTarget()
     {
+        //> Set layer for owner
         this.gameObject.layer = LayerMask.NameToLayer("RaycastTarget");
+
+        //> Set layer for all children of owner
+        List<GameObject> children = new List<GameObject>();
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            GameObject child = transform.GetChild(i).gameObject;
+            children.Add(child);
+        }
+
+        children.RemoveAll(x => x.TryGetComponent<DialogueBubble>(out _) == true);
+
+        foreach (GameObject child in children)
+        {
+            child.layer = LayerMask.NameToLayer("RaycastTarget");
+        }
+
     }
 }

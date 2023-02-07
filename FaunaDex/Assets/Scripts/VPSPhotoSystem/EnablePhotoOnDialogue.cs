@@ -26,9 +26,19 @@ public class EnablePhotoOnDialogue : MonoBehaviour
         dialogueDisplay = FindObjectOfType<DialogueDisplayHelper>();
 
         dialogueDisplay.OnTextStartedDisplaying.AddListener(CheckForRequirement);
+        dialogueDisplay.OnDialogueFinished.AddListener(CheckForRequirement);
     }
 
     public void CheckForRequirement(List<Expression> _)
+    {
+        if (dialogueDisplay.selectedEntry == requiredDialogueEntry)
+        {
+            FindObjectOfType<LayerHelper>()?.SetLayerToRaycastTarget();
+            EnablePhotoMode();
+        }
+    }
+
+    public void CheckForRequirement()
     {
         if (dialogueDisplay.selectedEntry == requiredDialogueEntry)
         {

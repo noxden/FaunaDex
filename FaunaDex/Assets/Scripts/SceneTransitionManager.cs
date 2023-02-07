@@ -23,7 +23,7 @@ public class SceneTransitionManager
     public static void LoadScene(Scene scene)
     {
         SceneManager.LoadSceneAsync(ResolveSceneName(scene));
-        OnSceneChanged.Invoke(scene);
+        OnSceneChanged?.Invoke(scene);
     }
 
     //# Private Methods 

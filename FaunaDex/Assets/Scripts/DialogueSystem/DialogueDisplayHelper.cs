@@ -44,6 +44,7 @@ public class DialogueDisplayHelper : MonoBehaviour
     [Space(5)]
     public UnityEvent<List<Expression>> OnTextStartedDisplaying;
     public UnityEvent OnTextFinishedDisplaying;     //?< The indicator for clicking to see the next text could be hooked up to this event.
+    public UnityEvent OnDialogueFinished;
 
     private void Start()
     {
@@ -101,6 +102,8 @@ public class DialogueDisplayHelper : MonoBehaviour
         currentDialogueEntriesPosition += 1;
         isCurrentlyDisplaying = false;
         OnTextFinishedDisplaying.Invoke();
+        if (currentDialogueEntriesPosition >= DialogueEntries.Count-1)
+            OnDialogueFinished?.Invoke();
     }
 
     private void HideDialogueBubble(bool value)

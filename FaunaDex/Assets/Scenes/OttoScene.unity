@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731332, g: 0.13414454, b: 0.12108202, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731348, g: 0.13414456, b: 0.12108212, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -465,8 +465,6 @@ GameObject:
   - component: {fileID: 324142872}
   - component: {fileID: 324142871}
   - component: {fileID: 324142870}
-  - component: {fileID: 324142869}
-  - component: {fileID: 324142873}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -495,20 +493,6 @@ RectTransform:
   m_AnchoredPosition: {x: 50, y: -50}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
---- !u!114 &324142869
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324142866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74025f6d87d216b418dfd0970e689ef1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiredQuestStage: 0
-  changeToStage: 1
 --- !u!114 &324142870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,30 +537,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 324142869}
-        m_TargetAssemblyTypeName: ChangeQuestStage, Assembly-CSharp
-        m_MethodName: OnButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 324142873}
-        m_TargetAssemblyTypeName: ChangeQuestStage, Assembly-CSharp
-        m_MethodName: OnButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 890072622}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
         m_MethodName: ChangeSceneToMap
@@ -627,20 +587,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 324142866}
   m_CullTransparentMesh: 1
---- !u!114 &324142873
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324142866}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 74025f6d87d216b418dfd0970e689ef1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  requiredQuestStage: 2
-  changeToStage: 3
 --- !u!1001 &506219157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -961,6 +907,111 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 180, y: -30, z: 0}
+--- !u!1001 &615147490
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1917084503044084, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_Name
+      value: ARSceneCamera (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917084503044084, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1917084503044084, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_RootOrder
+      value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 534
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1044
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4121737292843690, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20333895847132536, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_Depth
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20333895847132536, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_ClearFlags
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 20333895847132536, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: field of view
+      value: 158
+      objectReference: {fileID: 0}
+    - target: {fileID: 20333895847132536, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_FOVAxisMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20333895847132536, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8600000, guid: 9aac9d34e65e40c4995dc822789b8ad1, type: 2}
+    - target: {fileID: 20333895847132536, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_OcclusionCulling
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 20333895847132536, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 407
+      objectReference: {fileID: 0}
+    - target: {fileID: 20333895847132536, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_AllowDynamicResolution
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 20333895847132536, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_NormalizedViewPortRect.width
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 81267771042147026, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 924a7268bfe9947e095cce9a99ed0458, type: 3}
 --- !u!114 &689443117 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 348098268927462053, guid: 616082bc5f9279841a303e0c42212ae2, type: 3}
@@ -1142,6 +1193,7 @@ GameObject:
   m_Component:
   - component: {fileID: 890072623}
   - component: {fileID: 890072622}
+  - component: {fileID: 890072627}
   - component: {fileID: 890072624}
   - component: {fileID: 890072626}
   - component: {fileID: 890072625}
@@ -1206,12 +1258,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPhotoTakingEnabled: 0
-  Camera: {fileID: 0}
-  Canvas: {fileID: 0}
-  PolaroidObject: {fileID: 0}
+  Camera: {fileID: 778104759}
+  Canvas: {fileID: 119465158}
+  PolaroidObject: {fileID: 513544329}
   ScreenshotFlash: {fileID: 0}
   PhotoButton: {fileID: 513544329}
-  tex: {fileID: 0}
+  tex: {fileID: 8600000, guid: 9aac9d34e65e40c4995dc822789b8ad1, type: 2}
 --- !u!114 &890072626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1224,7 +1276,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 655fdab6a51a6664780724b07965b43a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredDialogueEntry: {fileID: 11400000, guid: dd94480f7f074d441b2fe12185e563d6, type: 2}
+  requiredDialogueEntry: {fileID: 11400000, guid: e660847c38eb6e04090bb467284a6703, type: 2}
+--- !u!114 &890072627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 890072621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74025f6d87d216b418dfd0970e689ef1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  requiredQuestStage: 0
+  changeToStage: 1
 --- !u!1 &1236272534
 GameObject:
   m_ObjectHideFlags: 0
@@ -1335,7 +1401,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speakerField: {fileID: 1237319431}
   textField: {fileID: 1567373051}
-  waitTimeInSeconds: 0.1
+  waitTimeInSeconds: 0.075
   DialogueEntries: []
   currentDialogueEntriesPosition: 0
   isCurrentlyDisplaying: 0
@@ -1367,9 +1433,9 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 890072624}
-        m_TargetAssemblyTypeName: HandOverManager, Assembly-CSharp
+        m_TargetAssemblyTypeName: HandOverHandler, Assembly-CSharp
         m_MethodName: CheckForRequirement
-        m_Mode: 1
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1400,6 +1466,33 @@ MonoBehaviour:
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDialogueFinished:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 890072627}
+        m_TargetAssemblyTypeName: ChangeQuestStage, Assembly-CSharp
+        m_MethodName: OnButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 890072621}
+        m_TargetAssemblyTypeName: ChangeQuestStage, Assembly-CSharp
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
