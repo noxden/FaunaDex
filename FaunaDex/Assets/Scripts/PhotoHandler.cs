@@ -6,6 +6,7 @@
 //================================================================
 
 using System.Collections;
+using DG.Tweening;
 using UnityEngine;
 using Image = UnityEngine.UI.Image;
 
@@ -28,6 +29,7 @@ public class PhotoHandler : MonoBehaviour
     private Ray Raycaster { get; set; }
 
     private MenuButtonHelper ButtonHandler => PhotoButton.GetComponent<MenuButtonHelper>();
+    private GameObject DexEntry => GameObject.Find("DexEntry");
     
     private bool RaycastHit => Physics.Raycast(Raycaster, out _, Mathf.Infinity, LayerMask.GetMask("RaycastTarget"));
 
@@ -69,6 +71,10 @@ public class PhotoHandler : MonoBehaviour
         }
     }
 
+    public void OpenDexEntry()
+    {
+        StartCoroutine(WaitOpen());
+    }
     public void OpenScreenshot()
     {
         if (ScreenshotObject != null)
@@ -135,5 +141,11 @@ public class PhotoHandler : MonoBehaviour
         tex.ReadPixels(new Rect( 0, 0, rTex.width, rTex.height), 0, 0);
         tex.Apply();
         return tex;
+    }
+
+    private IEnumerator WaitOpen()
+    {
+        yield return new WaitForSeconds(1f);
+        DexEntry.transform.DOScale(1, 1.5f);
     }
 }
