@@ -34,9 +34,9 @@ public class DexEntryHandler : MonoBehaviour
             Index -= 1;
         }
 
-        if (Index == 0)
+        else if (Index == 0)
         {
-            Index = DexImages.Count;
+            Index = DexImages.Count-1;
         }
         DexImage.sprite = DexImages[Index];
     }
