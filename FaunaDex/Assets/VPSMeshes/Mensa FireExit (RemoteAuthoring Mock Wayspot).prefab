@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5328681001702910352}
   - component: {fileID: 8033982682062605511}
   - component: {fileID: 2621877028634044721}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mensa FireExit (Wayspot Mesh)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
