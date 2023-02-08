@@ -33,8 +33,7 @@ public class PersistentQuestData : MonoBehaviour
         set
         {
             _questStage_Otto = value;
-            if (questStage_Otto == 0)
-                SaveDataManager.questStage = questStage_Otto;
+            SaveDataManager.questStage = questStage_Otto;
             OnQuestUpdated_Otto?.Invoke(questStage_Otto);
         }
     }
@@ -52,7 +51,8 @@ public class PersistentQuestData : MonoBehaviour
         instance = this;
 
         //# Read save file 
-        questStage_Otto = SaveDataManager.questStage;
+        if (questStage_Otto == 0)
+            questStage_Otto = SaveDataManager.questStage;
         Debug.Log($"Loaded save file: QuestStage is now {questStage_Otto}.", this);
     }
 }
