@@ -102,7 +102,7 @@ public class DialogueDisplayHelper : MonoBehaviour
         currentDialogueEntriesPosition += 1;
         isCurrentlyDisplaying = false;
         OnTextFinishedDisplaying.Invoke();
-        if (currentDialogueEntriesPosition >= DialogueEntries.Count-1)
+        if (currentDialogueEntriesPosition >= DialogueEntries.Count - 1)  //< Returns true as soon as the displayed text was the second-to-last entry (as currentDialogueEntriesPosition gets increased in line 102 already)
             OnDialogueFinished?.Invoke();
     }
 
