@@ -23,7 +23,7 @@ public class SceneTransitionManager
     public static void LoadScene(Scene scene)
     {
         SceneManager.LoadSceneAsync(ResolveSceneName(scene));
-        OnSceneChanged.Invoke(scene);
+        OnSceneChanged?.Invoke(scene);
     }
 
     //# Private Methods 
@@ -36,7 +36,7 @@ public class SceneTransitionManager
             case Scene.Otter:
                 return "OttoScene";
             case Scene.Dragonfly:
-                return "DragonflyScene";
+                return "DragonflySceneNew";
             case Scene.QuestTracker:
                 return "QuestTracker";
         }

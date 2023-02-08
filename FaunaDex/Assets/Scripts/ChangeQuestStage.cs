@@ -19,6 +19,12 @@ public class ChangeQuestStage : MonoBehaviour
 
     public void OnButtonPressed()
     {
+        if (PersistentQuestData.instance == null)
+        {
+            Debug.LogWarning($"There is no PersistentQuestData existent in this scene.");
+            return;
+        }
+
         if (PersistentQuestData.instance.questStage_Otto == requiredQuestStage)
         {
             PersistentQuestData.instance.questStage_Otto = changeToStage;

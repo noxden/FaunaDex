@@ -2,7 +2,7 @@
 // Darmstadt University of Applied Sciences, Expanded Realities
 // Course:       Project 5 (Grimm, Hausmeier, Vollert)
 // Script by:    Daniel Heilmann (771144)
-// Last changed: 03-02-23
+// Last changed: 06-02-23
 //================================================================
 
 using System.Collections;
@@ -11,8 +11,13 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public bool canTalk = true;
+
     private void Update()
     {
+        if (!canTalk)
+            return;
+
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);

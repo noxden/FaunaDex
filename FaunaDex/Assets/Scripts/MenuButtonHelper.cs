@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class MenuButtonHelper : MonoBehaviour
 {
+
     [SerializeField]
     private Button button;  //< Automatically assigns a button from the GameObject this script is on.
 
@@ -19,11 +20,17 @@ public class MenuButtonHelper : MonoBehaviour
     [SerializeField]
     private Sprite deactivatedButtonSprite;
 
+    [SerializeField]
+    private bool startDeactivated = false;
+    
     private void Start()
     {
         if (button == null)
             button = GetComponent<Button>();
         //button.colors.disabledColor = button.colors.normalColor;
+
+        if (startDeactivated)
+            DeactivateButton();
     }
 
     public void ActivateButton()
