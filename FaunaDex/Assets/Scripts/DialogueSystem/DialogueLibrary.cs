@@ -13,7 +13,7 @@ public class DialogueLibrary : MonoBehaviour
 {
     [SerializeField]
     [Tooltip("Only for visualization")]
-    private int questStage;
+    private int questStage = 0;
 
     [SerializeField]
     private List<Dialogue> Dialogues = new List<Dialogue>(4);

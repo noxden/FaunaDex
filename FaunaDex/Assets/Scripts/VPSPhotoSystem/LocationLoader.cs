@@ -9,7 +9,7 @@ using UnityEngine.Events;
 public class LocationLoader : MonoBehaviour
 {
     private enum VPSLocation { MediaColumn, FireExit }
-    public LocationLoader instance { get; set; }
+    public static LocationLoader instance { get; set; }
     private LocationManifestManager locationManifestManager;
 
     [SerializeField]
