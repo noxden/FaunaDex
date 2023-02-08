@@ -80,3 +80,6 @@ FaunaDex/ProjectSettings/EditorSettings.asset
 
 FaunaDex/.vscode/
 FaunaDex/ARFoundationRemoteInstaller
+gradle/*
+FaunaDex/.idea/.idea.FaunaDex/.idea
+FaunaDex/Assets/.idea/.idea.Assets.dir/.idea

@@ -4,5 +4,14 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/GPSMapScene.unity
+    guid: 9e81c723836c4b640a502acdf08c4fe3
+  - enabled: 1
+    path: Assets/Scenes/OttoScene.unity
+    guid: f41cc270d99dc5a4998b31e011cc07ff
+  - enabled: 1
+    path: Assets/Scenes/DragonflySceneNew.unity
+    guid: 265ca49767d48f147a8ce9ebbdfaa010
   m_configObjects: {}

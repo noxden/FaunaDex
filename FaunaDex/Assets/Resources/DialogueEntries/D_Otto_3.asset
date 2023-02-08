@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 290093c31565ec74c9788a5aeff5875e, type: 3}
+  m_Name: D_Otto_3
+  m_EditorClassIdentifier: 
+  dialogueEntries:
+  - {fileID: 11400000, guid: e100952d27f90364789571050863243c, type: 2}
+  - {fileID: 11400000, guid: ceca4baec35a17f42b218326c572bc48, type: 2}
+  - {fileID: 11400000, guid: 0d99f058702d1794ea7a56e514d1d144, type: 2}
+  - {fileID: 11400000, guid: 5eb0a1de730400643b52eb5aa18b77f8, type: 2}
+  - {fileID: 11400000, guid: ec8f88c6612f7ca49ae17f834a2d2ab9, type: 2}
+  - {fileID: 11400000, guid: e100952d27f90364789571050863243c, type: 2}
