@@ -36,7 +36,7 @@ public class SceneTransitionManager
             case Scene.Otter:
                 return "OttoScene";
             case Scene.Dragonfly:
-                return "DragonflyScene";
+                return "DragonflySceneNew";
             case Scene.QuestTracker:
                 return "QuestTracker";
         }

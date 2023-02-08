@@ -66,8 +66,8 @@ public class PhotoHandler : MonoBehaviour
             ScreenshotTexture = toTexture2D(tex);
             //ScreenshotTexture = ScreenCapture.CaptureScreenshotAsTexture();
             StartCoroutine(ScreenshotFlashing());
-            MeshRenderer[] mat = Polaroid.GetComponentsInChildren<MeshRenderer>();
-            mat[1].material.mainTexture = ScreenshotTexture;
+            //MeshRenderer[] mat = Polaroid.GetComponentsInChildren<MeshRenderer>();
+            //mat[1].material.mainTexture = ScreenshotTexture;
         }
     }
 
