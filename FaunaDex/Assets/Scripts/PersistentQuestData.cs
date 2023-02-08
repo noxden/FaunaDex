@@ -33,7 +33,8 @@ public class PersistentQuestData : MonoBehaviour
         set
         {
             _questStage_Otto = value;
-            SaveDataManager.questStage = questStage_Otto;
+            if (questStage_Otto == 0)
+                SaveDataManager.questStage = questStage_Otto;
             OnQuestUpdated_Otto?.Invoke(questStage_Otto);
         }
     }

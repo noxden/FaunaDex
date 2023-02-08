@@ -80,12 +80,20 @@ public class ScreenNotification : MonoBehaviour
             buttonField = button.GetComponentInChildren<TextMeshProUGUI>();
         }
 
-        if (button != null)
-            OnButtonClicked = button.onClick;
+        // if (button != null)
+        //     button.onClick.AddListener(ButtonClickRelay);
     }
 
     public void Close()
     {
         ScreenNotificationHandler.Close(this);
+    }
+
+    /// <summary>
+    /// Only public for hooking into the button event of ScreenNotification in the prefabs via editor.
+    /// </summary>
+    public void ButtonClickRelay()
+    {
+        OnButtonClicked?.Invoke();
     }
 }
