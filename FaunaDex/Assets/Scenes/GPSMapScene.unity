@@ -2775,6 +2775,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1267400701}
     m_Modifications:
+    - target: {fileID: 6711710015472291909, guid: 1aac573d226eab841b8aaedfc8584271, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8485274724022495045, guid: 1aac573d226eab841b8aaedfc8584271, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -6838,7 +6842,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5031ea1f2806fed48b49172879fcf8bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _questStage_Otto: 3
+  _questStage_Otto: 0
 --- !u!4 &2010301876
 Transform:
   m_ObjectHideFlags: 0

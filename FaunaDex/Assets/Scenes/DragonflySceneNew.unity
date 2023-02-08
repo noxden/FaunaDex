@@ -1746,6 +1746,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 796267750}
     m_Modifications:
+    - target: {fileID: 3227680752092457148, guid: 37ff688174db1054fb0876710e7d97a6, type: 3}
+      propertyPath: m_text
+      value: Keep on scanning the metal construction and the ground around it.
+      objectReference: {fileID: 0}
     - target: {fileID: 4596684990424666932, guid: 37ff688174db1054fb0876710e7d97a6, type: 3}
       propertyPath: m_Name
       value: OverlayScanOtter
