@@ -55,10 +55,4 @@ public class DexEntryHandler : MonoBehaviour
     {
         DexImage.sprite = DexImages[Index];
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

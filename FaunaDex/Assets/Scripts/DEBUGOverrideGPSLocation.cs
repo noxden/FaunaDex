@@ -9,12 +9,15 @@ public class DEBUGOverrideGPSLocation : MonoBehaviour
 
     private void Start()
     {
-        Debug.LogWarning($"DEBUGOverrideGPSLocation is currently enabled. GPSHandler.debugMode will now be activated.");
-        GPSHandler.instance.debugMode = true;
+        // Debug.LogWarning($"DEBUGOverrideGPSLocation is currently enabled. GPSHandler.debugMode will now be activated.");
+        // GPSHandler.instance.debugMode = true;
     }
 
     public void TPToOtto()
     {
+        if (GPSHandler.instance.debugMode != true)
+            GPSHandler.instance.debugMode = true;
+
         Debug.Log($"DEBUGOverrideGPSLocation: Teleported player to Otto");
         GPSHandler.instance.debugLatitude = Otto.x;
         GPSHandler.instance.debugLongitude = Otto.y;
@@ -22,6 +25,9 @@ public class DEBUGOverrideGPSLocation : MonoBehaviour
 
     public void TPToDragonfly()
     {
+        if (GPSHandler.instance.debugMode != true)
+            GPSHandler.instance.debugMode = true;
+
         Debug.Log($"DEBUGOverrideGPSLocation: Teleported player to Dragonfly");
         GPSHandler.instance.debugLatitude = Dragonfly.x;
         GPSHandler.instance.debugLongitude = Dragonfly.y;
