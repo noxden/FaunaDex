@@ -14,19 +14,40 @@ using TMPro;
 public class GPSVisualizer : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI tIsEnabled;
+    private TextMeshProUGUI tIsEnabled = null;
     [SerializeField]
-    private TextMeshProUGUI tLatitude;
+    private TextMeshProUGUI tLatitude = null;
     [SerializeField]
-    private TextMeshProUGUI tLongitude;
+    private TextMeshProUGUI tLongitude = null;
     [SerializeField]
-    private TextMeshProUGUI tStatus;
+    private TextMeshProUGUI tStatus = null;
 
-    void Update()
+    /// <summary>
+    /// Start is called on the frame when a script is enabled just before
+    /// any of the Update methods is called the first time.
+    /// </summary>
+    private void Start()
     {
-        tIsEnabled.text = Input.location.isEnabledByUser.ToString();
-        tLatitude.text = Input.location.lastData.latitude.ToString();
-        tLongitude.text = Input.location.lastData.longitude.ToString();
-        tStatus.text = Input.location.status.ToString();
+        GPSHandler.instance.OnGPSUpdate.AddListener(UpdateText);
+    }
+
+    /// <summary>
+    /// This function is called when the MonoBehaviour will be destroyed.
+    /// </summary>
+    private void OnDestroy()
+    {
+        GPSHandler.instance.OnGPSUpdate.RemoveListener(UpdateText);
+    }
+
+    void UpdateText(Vector2 _)
+    {
+        if (tIsEnabled != null)
+            tIsEnabled.text = Input.location.isEnabledByUser.ToString();
+        if (tLatitude != null)
+            tLatitude.text = Input.location.lastData.latitude.ToString();
+        if (tLongitude != null)
+            tLongitude.text = Input.location.lastData.longitude.ToString();
+        if (tStatus != null)
+            tStatus.text = Input.location.status.ToString();
     }
 }
