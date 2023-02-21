@@ -80,7 +80,7 @@ public class GPSHandler : MonoBehaviour
         }
 
         // Starts the location service.
-        Input.location.Start(desiredAccuracyInMeters: 5.0f, updateDistanceInMeters: 10.0f);
+        Input.location.Start(desiredAccuracyInMeters: 10.0f, updateDistanceInMeters: 20.0f);
 
         // Waits until the location service initializes
         int maxWait = 20;
